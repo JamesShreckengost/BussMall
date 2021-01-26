@@ -32,7 +32,7 @@ new ProductImage('images/pen.jpg');
 new ProductImage('images/pet-sweep.jpg');
 new ProductImage('images/scissors.jpg');
 new ProductImage('images/shark.jpg');
-new ProductImage('images/sweep.jpg');
+new ProductImage('images/sweep.png');
 new ProductImage('images/tauntaun.jpg');
 new ProductImage('images/unicorn.jpg');
 new ProductImage('images/usb.gif');
@@ -99,3 +99,4 @@ var newProducts = generateRandomProducts();
 renderProducts(newProducts[0], newProducts[1], newProducts[2]);
 
 });
+
