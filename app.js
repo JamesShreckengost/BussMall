@@ -81,7 +81,7 @@ function renderProducts(productOne, productTwo, productThree) {
 // intialize our page
 
 var randomProducts = generateRandomProducts();
-renderProducts(randomProducts[1], randomProducts[2], randomProducts[3])
+renderProducts(randomProducts[0], randomProducts[1], randomProducts[2])
 
 // how do we do something everytime an image was clicked
 productContainer.addEventListener('click', function (event) {
