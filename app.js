@@ -45,6 +45,7 @@ var productContainer = document.getElementById('product-container');
 var productOneImage = document.getElementById('product-one');
 var productTwoImage = document.getElementById('product-two');
 var productThreeImage = document.getElementById('product-three');
+var timesClicked = 0;
 console.log(ProductImage.allImages)
 
 
@@ -94,6 +95,7 @@ productContainer.addEventListener('click', function (event) {
   // how to identify which image is clicked. Increment the object that was clicked.
   for (var i = 0; i < ProductImage.allImages.length; i++) {
     if (event.target.src.includes(ProductImage.allImages[i].image)) {
+      console.log(event.target.src)
       ProductImage.allImages[i].timesClicked++;
       console.log(ProductImage.allImages[i]);
     }
@@ -110,14 +112,14 @@ renderProducts(newProducts[0], newProducts[1], newProducts[2]);
 
 });
 
-// var ctx = document.getElementById('myChart').getContext('2d');
+ var ctx = document.getElementById('myChart').getContext('2d');
 
 // var mychart = new Chart()
 
 var myChart = new Chart (ctx, {
   type: 'bar',
   data: {
-    labels: products, // array of strings goes here
+    labels: ProductImage.allImages, // array of strings goes here
     datasets: [{
       label: 'times clicked',
       data: [15, 50, 3, 5, 2, 3], // array of numbers goes here
