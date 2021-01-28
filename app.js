@@ -74,7 +74,7 @@ function renderProducts(productOne, productTwo, productThree) {
   productTwo.timesShown++;
 
   productThreeImage.src = productThree.image;
-  productThree.timesShown++;
+  productThree.timesShown++;   
 
 }
 
@@ -87,6 +87,10 @@ renderProducts(randomProducts[0], randomProducts[1], randomProducts[2])
 productContainer.addEventListener('click', function (event) {
   console.log(event.target); // the actual item that was clicked
 
+  function addClickCount(event) {
+    console.log(event.target.id);
+  }
+
   // how to identify which image is clicked. Increment the object that was clicked.
   for (var i = 0; i < ProductImage.allImages.length; i++) {
     if (event.target.src.includes(ProductImage.allImages[i].image)) {
@@ -95,8 +99,88 @@ productContainer.addEventListener('click', function (event) {
     }
   }
 
+  console.log(timesClicked)
+  if(timesClicked === 25) {
+    productContainer.removeEventListener
+    ('click'), addClickCount();
+  }
+
 var newProducts = generateRandomProducts();
 renderProducts(newProducts[0], newProducts[1], newProducts[2]);
 
 });
 
+// var ctx = document.getElementById('myChart').getContext('2d');
+
+// var mychart = new Chart()
+
+var myChart = new Chart (ctx, {
+  type: 'bar',
+  data: {
+    labels: products, // array of strings goes here
+    datasets: [{
+      label: 'times clicked',
+      data: [15, 50, 3, 5, 2, 3], // array of numbers goes here
+      // data: votesByProduct,
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)'
+      ],
+      borderColor: [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)'
+      ],
+      borderWidth: 1
+    },
+    {
+      label: 'times Shows',
+      data: [30, 100, 3, 5, 2, 3],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)'
+      ],
+      borderColor: [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)'
+      ],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true
+        }
+      }]
+    }
+  }
+});
+
+
+
+function storeObject(obj) {
+  var stringify = localStorage.getItem(key)
+  localStorage.setItem('Products')
+}
+
+function fetchObject(key) {
+  var stringify = localStorage.getItem(key);
+  return JSON.parse(stringify)
+}
